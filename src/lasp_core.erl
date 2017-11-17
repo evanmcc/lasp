@@ -96,6 +96,8 @@
 %% @private
 enforce_once(Id, Threshold, EnforceFun, Store) ->
     TransFun = fun({_, Type, _, Value}) ->
+                   %% the below will never be printed during the test
+                   lager:info("XXXXXXXXXXXXXXX"),
                    case lasp_type:threshold_met(Type, Value, Threshold) of
                        true ->
                            {ok, Membership} = lasp:query(?MEMBERSHIP_ID),

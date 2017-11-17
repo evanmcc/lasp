@@ -106,13 +106,13 @@ init(_Args) ->
     lager:info("Workflow: ~p", [WorkflowEnabled]),
 
     WorkflowSpecs = case WorkflowEnabled of
-        true ->
+        truesssss ->
             Workflow = {lasp_workflow,
                         {lasp_workflow, start_link, []},
                          permanent, 5000, worker,
                          [lasp_workflow]},
             [Workflow];
-        false ->
+        _false ->
             []
     end,
 
